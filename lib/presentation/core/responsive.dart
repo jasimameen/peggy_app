@@ -1,6 +1,7 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
-import 'package:peggy/presentation/core/constants.dart';
+import 'package:peggy/presentation/core/constants/mockups.dart';
 import 'package:pixel_perfect/pixel_perfect.dart';
 
 class Responsive extends StatelessWidget {
@@ -13,16 +14,20 @@ class Responsive extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
-    
     final scale = Mockups.mockupWidth / width;
-    final textScaleFactor = width / Mockups.mockupWidth;
+    final textScaleFactor = (Mockups.mockupWidth / width) * 0.5;
+
+    log('device dp: ${MediaQuery.of(context).devicePixelRatio * 160}');
+    log('scale: $scale');
 
     return MediaQuery(
       data: MediaQuery.of(context).copyWith(
+        devicePixelRatio: 420 / width,
         textScaleFactor: textScaleFactor,
       ),
       child: PixelPerfect(
         assetPath: Mockups.homeActivity,
+        initOpacity: .3,
         scale: scale,
         child: child,
       ),

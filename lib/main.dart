@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:peggy/presentation/base/base_app.dart';
 import 'package:peggy/presentation/core/responsive.dart';
-import 'package:peggy/presentation/home/home_screen.dart';
 
 void main() => runApp(const MyApp());
 
@@ -9,11 +9,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'peggy',
-      builder: (context, child) {
-        return const Responsive(child: HomeScreen());
-      },
+      home: Responsive(child: BaseScreen()),
     );
   }
 }

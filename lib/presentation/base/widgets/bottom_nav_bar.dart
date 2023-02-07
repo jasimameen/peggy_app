@@ -13,11 +13,17 @@ class BottomNavBar extends StatelessWidget {
         currentIndex: index,
         onTap: (newIndex) => indexChangeNotifier.value = newIndex,
         type: BottomNavigationBarType.fixed,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
         items: [
-          NavBarItem(iconData: Icons.color_lens), // Home
-          NavBarItem(iconData: Icons.favorite), // favorates
-          NavBarItem(iconData: Icons.notifications), // Notifications
-          NavBarItem.custom(icon: const CircleAvatar()), // Profile
+          NavBarItem(label: 'Home', iconData: Icons.color_lens), // Home
+          NavBarItem(
+              label: 'Pegaboards', iconData: Icons.favorite), // PegaBoards
+          NavBarItem(
+              label: 'Notifications',
+              iconData: Icons.notifications), // Notifications
+          NavBarItem.custom(
+              label: 'Profile', icon: const CircleAvatar()), // Profile
         ],
       ),
     );
@@ -25,12 +31,14 @@ class BottomNavBar extends StatelessWidget {
 }
 
 class NavBarItem extends BottomNavigationBarItem {
-  NavBarItem({required IconData iconData})
+  NavBarItem({required String label, required IconData iconData})
       : super(
+            label: label,
             icon: Icon(
-          iconData,
-          color: Colors.black,
-        ));
+              iconData,
+              color: Colors.black,
+            ));
 
-  NavBarItem.custom({required Widget icon}) : super(icon: icon);
+  NavBarItem.custom({required String label, required Widget icon})
+      : super(label: label, icon: icon);
 }

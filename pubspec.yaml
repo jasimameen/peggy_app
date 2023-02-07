@@ -12,6 +12,9 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.2
   pixel_perfect: ^1.1.1
+  flutter_svg: ^1.1.6
+  flutter_screenutil: ^5.6.1
+  google_fonts: ^4.0.3
 
 dev_dependencies:
   flutter_test:
