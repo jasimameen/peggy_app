@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:peggy/presentation/core/constants/asset_constants.dart';
+import '../core/constants/constants.dart';
 
 class ProfileAvathar extends CircleAvatar {
-  const ProfileAvathar({Key? key, double? radius, Widget? child})
+  const ProfileAvathar(
+      {Key? key, double? radius, Color? backgroundColor, Widget? child})
       : super(
           key: key,
           radius: radius,
+          backgroundColor: backgroundColor ?? Pallete.offWhite,
           child: child,
         );
 
@@ -30,8 +32,13 @@ class ProfileAvathar extends CircleAvatar {
         super(
           key: key,
           radius: radius,
-          child: Text(text[0]),
-          backgroundColor:
-              backgroundColor ?? const Color.fromRGBO(249, 249, 249, 1),
+          child: Text(
+            text[0],
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontFamily: 'liberator',
+            ),
+          ),
+          backgroundColor: backgroundColor ?? Pallete.offWhite,
         );
 }

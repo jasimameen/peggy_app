@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:peggy/presentation/base/base_app.dart';
-import 'package:peggy/presentation/core/responsive.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'presentation/base/base_app.dart';
+import 'presentation/core/responsive.dart';
 
 void main() => runApp(const MyApp());
 
@@ -9,10 +10,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'peggy',
-      home: Responsive(child: BaseScreen()),
+
+      // thems
+      theme: ThemeData(
+        primaryColor: Colors.black,
+        textTheme: GoogleFonts.cabinTextTheme(Theme.of(context).textTheme),
+      ),
+
+      //
+      home: const Responsive(child: BaseScreen()),
     );
   }
 }

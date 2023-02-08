@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:peggy/presentation/base/widgets/bottom_nav_bar.dart';
-import 'package:peggy/presentation/home/home_screen.dart';
-import 'package:peggy/presentation/widgets/comming_soon_screen.dart';
+import 'widgets/bottom_nav_bar.dart';
+import '../home/home_screen.dart';
+import '../widgets/comming_soon_screen.dart';
 
 import 'widgets/app_drawer.dart';
 
@@ -25,11 +25,9 @@ class BaseScreen extends StatelessWidget {
 
       // body
       body: SafeArea(
-        child: Expanded(
-          child: ValueListenableBuilder(
-            valueListenable: indexChangeNotifier,
-            builder: (context, int index, _) => _pages[index],
-          ),
+        child: ValueListenableBuilder(
+          valueListenable: indexChangeNotifier,
+          builder: (context, int index, _) => _pages[index],
         ),
       ),
       bottomNavigationBar: const BottomNavBar(),

@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:peggy/presentation/core/constants/mockups.dart';
+import 'constants/mockups.dart';
 import 'package:pixel_perfect/pixel_perfect.dart';
 
 class Responsive extends StatelessWidget {
@@ -26,7 +26,7 @@ class Responsive extends StatelessWidget {
         textScaleFactor: textScaleFactor,
       ),
       child: PixelPerfect(
-        assetPath: Mockups.homeActivity,
+        assetPath: Mockups.homeCuration,
         initOpacity: .3,
         scale: scale,
         child: child,

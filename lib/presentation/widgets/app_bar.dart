@@ -1,12 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:peggy/presentation/core/constants/asset_constants.dart';
-import 'package:peggy/presentation/core/constants/ui_constants.dart';
-import 'package:peggy/presentation/widgets/profile_avathar.dart';
+import '../core/constants/asset_constants.dart';
+import '../core/constants/ui_constants.dart';
+import 'profile_avathar.dart';
 
-class CustomAppBar extends AppBar {
+class CustomAppBar extends AppBar{
   /// default appbar
   CustomAppBar({Key? key, PreferredSizeWidget? bottom})
       : super(
@@ -68,6 +67,7 @@ class CustomAppBar extends AppBar {
               ],
             ),
           ));
+
 }
 
 class _TitleSection extends StatelessWidget {
@@ -88,7 +88,7 @@ class _TitleSection extends StatelessWidget {
               'Welcome,',
               style: TextStyle(color: Colors.grey, fontSize: 11),
             ),
-            UIConstants.height5,
+            UIConstants.height3,
             Text(
               'Jasim',
               style: TextStyle(fontSize: 22),

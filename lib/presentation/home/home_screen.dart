@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:peggy/presentation/core/constants/ui_constants.dart';
-import 'package:peggy/presentation/home/widgets/activity_view.dart';
-import 'package:peggy/presentation/home/widgets/explore_view.dart';
-import 'package:peggy/presentation/widgets/app_bar.dart';
+import '../core/constants/ui_constants.dart';
+import 'widgets/activity_view.dart';
+import 'widgets/explore_view.dart';
+import '../widgets/app_bar.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -16,6 +16,7 @@ class HomeScreen extends StatelessWidget {
       length: tabs.length,
       child: Scaffold(
         appBar: CustomAppBar.withTabBar(tabs: tabs),
+        
         body: const Padding(
           padding: EdgeInsets.all(15),
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:peggy/presentation/widgets/profile_avathar.dart';
+import '../../widgets/profile_avathar.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({

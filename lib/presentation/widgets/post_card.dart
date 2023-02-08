@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:peggy/presentation/widgets/profile_avathar.dart';
+import 'profile_avathar.dart';
 
 import '../core/constants/constants.dart';
 

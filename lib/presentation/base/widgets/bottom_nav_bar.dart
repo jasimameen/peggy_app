@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:peggy/presentation/widgets/profile_avathar.dart';
 
 ValueNotifier<int> indexChangeNotifier = ValueNotifier(0);
 
@@ -23,7 +24,7 @@ class BottomNavBar extends StatelessWidget {
               label: 'Notifications',
               iconData: Icons.notifications), // Notifications
           NavBarItem.custom(
-              label: 'Profile', icon: const CircleAvatar()), // Profile
+              label: 'Profile', icon: ProfileAvathar.byName('J')), // Profile
         ],
       ),
     );
