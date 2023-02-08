@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import '../core/constants/constants.dart';
 
 class ProfileAvathar extends CircleAvatar {
@@ -11,6 +12,8 @@ class ProfileAvathar extends CircleAvatar {
           child: child,
         );
 
+  fun() => SvgPicture.asset('assetName');
+
   ProfileAvathar.image({
     Key? key,
     required String image,
@@ -19,8 +22,13 @@ class ProfileAvathar extends CircleAvatar {
         super(
           key: key,
           radius: radius,
-          foregroundImage: AssetImage(image),
-          onForegroundImageError: (_, __) => const ProfileAvathar(),
+          backgroundColor: const Color.fromARGB(255, 219, 216, 216),
+          child: Padding(
+            padding: const EdgeInsets.all(3),
+            child: image.endsWith('.svg')
+                ? SvgPicture.asset(image)
+                : Image.asset(image),
+          ),
         );
 
   ProfileAvathar.byName(

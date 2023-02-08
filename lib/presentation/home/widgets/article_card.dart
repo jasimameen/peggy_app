@@ -32,8 +32,8 @@ class ArticleCard extends StatelessWidget {
               begin: Alignment.center,
               end: Alignment.bottomCenter,
               colors: [
-                Color.fromARGB(15, 45, 45, 0),
-                Color.fromARGB(170, 2, 2, 2),
+                Color.fromARGB(24, 42, 42, 0),
+                Color.fromARGB(223, 2, 2, 2),
               ],
             ),
           ),
