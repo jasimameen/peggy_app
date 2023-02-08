@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:peggy/presentation/core/constants/ui_constants.dart';
 
-
 typedef ItemBuilder = Widget Function(BuildContext context, int index);
 
 class HorizontalScrollView extends StatelessWidget {
@@ -27,6 +26,8 @@ class HorizontalScrollView extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        UIConstants.height8,
+        
         // section title
         Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
 

@@ -26,7 +26,7 @@ class Responsive extends StatelessWidget {
         textScaleFactor: textScaleFactor,
       ),
       child: PixelPerfect(
-        assetPath: Mockups.homeCuration,
+        assetPath: Mockups.homeArticles,
         initOpacity: .3,
         scale: scale,
         child: child,
