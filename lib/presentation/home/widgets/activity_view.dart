@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../core/constants/pallette.dart';
 import 'article_card.dart';
+import 'audio_card.dart';
 import 'custom_list_tile.dart';
 import '../../widgets/post_card.dart';
 
@@ -40,8 +41,18 @@ class HomeActivityTabView extends StatelessWidget {
         ),
 
         // pegacast
+        HorizontalScrollView(
+          viewHeight: 110,
+          title: 'Pegacasts',
+          itemBuilder: (context, index) => const AudioCard(),
+          itemCount: 10,
+        ),
 
         // pegaboards
+
+        Container(
+          height: 1000,
+        ),
       ],
     );
   }

@@ -8,6 +8,7 @@ class UIConstants {
   static const divider = Divider();
 
   // blank spaces
+  static const width5 = SizedBox(width: 5);
   static const width8 = SizedBox(width: 8);
   static const width10 = SizedBox(width: 10);
   static const width20 = SizedBox(width: 20);
