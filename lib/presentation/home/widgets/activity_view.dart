@@ -45,6 +45,11 @@ class HomeActivityTabView extends StatelessWidget {
         HorizontalScrollView(
           viewHeight: 110,
           title: 'Pegacasts',
+          trailing: const Text(
+            "View All ",
+            style:
+                TextStyle(decoration: TextDecoration.underline, fontSize: 13),
+          ),
           itemBuilder: (context, index) => const AudioCard(),
           itemCount: 10,
         ),
