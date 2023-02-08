@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'widgets/bottom_nav_bar.dart';
 import '../home/home_screen.dart';
@@ -8,7 +7,7 @@ import 'widgets/app_drawer.dart';
 
 class BaseScreen extends StatelessWidget {
   static const routeName = '/';
-  const BaseScreen({super.key});
+  BaseScreen({super.key});
 
   final _pages = const [
     HomeScreen(),
@@ -16,6 +15,8 @@ class BaseScreen extends StatelessWidget {
     ComingSoonScreen(text: 'Notifications'),
     ComingSoonScreen(text: 'Profile'),
   ];
+
+  final _key = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +26,16 @@ class BaseScreen extends StatelessWidget {
 
       // body
       body: SafeArea(
-        child: ValueListenableBuilder(
-          valueListenable: indexChangeNotifier,
-          builder: (context, int index, _) => _pages[index],
+        child: GestureDetector(
+          onHorizontalDragDown: (_) {
+            _key.currentState!.isDrawerOpen
+                ? Scaffold.of(context).closeDrawer()
+                : Scaffold.of(context).openDrawer();
+          },
+          child: ValueListenableBuilder(
+            valueListenable: indexChangeNotifier,
+            builder: (context, int index, _) => _pages[index],
+          ),
         ),
       ),
       bottomNavigationBar: const BottomNavBar(),

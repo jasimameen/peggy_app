@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../core/constants/pallette.dart';
+import '../../widgets/board_card.dart';
 import 'article_card.dart';
 import 'audio_card.dart';
 import 'custom_list_tile.dart';
@@ -18,19 +19,19 @@ class HomeActivityTabView extends StatelessWidget {
       // TODO: add pagination and move listview to listview.builder
       children: [
         // post card
-        // const PostCard(),
+        const PostCard(),
 
-        // // peggy curation
-        // HorizontalScrollView(
-        //   viewHeight: 60,
-        //   title: 'Peggy Curation',
-        //   itemBuilder: (context, index) =>
-        //       const Icon(Icons.flutter_dash, size: 60),
-        //   itemCount: 10,
-        // ),
+        // peggy curation
+        HorizontalScrollView(
+          viewHeight: 60,
+          title: 'Peggy Curation',
+          itemBuilder: (context, index) =>
+              const Icon(Icons.flutter_dash, size: 60),
+          itemCount: 10,
+        ),
 
-        // // hadpicked galleris and proven artists
-        // ...Dummy.homeActivityListTiles,
+        // hadpicked galleris and proven artists
+        ...Dummy.homeActivityListTiles,
 
         // articles
         HorizontalScrollView(
@@ -49,6 +50,12 @@ class HomeActivityTabView extends StatelessWidget {
         ),
 
         // pegaboards
+        HorizontalScrollView(
+          viewHeight: 160,
+          title: 'Pegacasts',
+          itemBuilder: (context, index) => const PegaBoardCard(),
+          itemCount: 10,
+        ),
 
         Container(
           height: 1000,

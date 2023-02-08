@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       ),
 
       //
-      home: const Responsive(child: BaseScreen()),
+      home:  Responsive(child: BaseScreen()),
     );
   }
 }

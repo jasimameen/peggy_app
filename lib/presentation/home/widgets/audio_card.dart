@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../core/constants/asset_constants.dart';
-import '../../core/constants/pallette.dart';
 import '../../core/constants/ui_constants.dart';
 import '../../widgets/profile_avathar.dart';
 
