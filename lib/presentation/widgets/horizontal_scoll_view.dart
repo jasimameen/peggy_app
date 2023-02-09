@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
 import 'package:peggy/presentation/core/constants/ui_constants.dart';
@@ -11,7 +12,7 @@ class HorizontalScrollView extends StatelessWidget {
   final Widget? trailing;
   final int itemCount;
   final double? viewHeight;
-
+  final bool viewAllTrailing;
   const HorizontalScrollView({
     Key? key,
     required this.title,
@@ -20,6 +21,7 @@ class HorizontalScrollView extends StatelessWidget {
     this.trailing,
     required this.itemCount,
     this.viewHeight,
+    this.viewAllTrailing = false,
   }) : super(key: key);
 
   @override
@@ -31,7 +33,16 @@ class HorizontalScrollView extends StatelessWidget {
         UIConstants.height8,
 
         // section title
-        _SectionTitle(title: title, trailing: trailing),
+        _SectionTitle(
+          title: title,
+          trailing: trailing == null && viewAllTrailing
+              ? const Text(
+                  "View All ",
+                  style: TextStyle(
+                      decoration: TextDecoration.underline, fontSize: 13),
+                )
+              : trailing,
+        ),
 
         UIConstants.height20,
 

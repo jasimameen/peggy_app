@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:peggy/presentation/core/utils/utils.dart';
-import '../core/constants/ui_constants.dart';
+import '../../core/constants/ui_constants.dart';
 import 'widgets/activity_view.dart';
 import 'widgets/explore_view.dart';
-import '../widgets/app_bar.dart';
+import '../../widgets/app_bar.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

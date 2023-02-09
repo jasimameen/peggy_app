@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../home/widgets/custom_list_tile.dart';
+import '../../screens/home/widgets/custom_list_tile.dart';
 import 'asset_constants.dart';
 import 'ui_constants.dart';
 

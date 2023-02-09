@@ -8,8 +8,13 @@ import 'profile_avathar.dart';
 
 class CustomAppBar extends AppBar {
   /// default appbar
-  CustomAppBar({Key? key, PreferredSizeWidget? bottom})
-      : super(
+  CustomAppBar({
+    Key? key,
+    PreferredSizeWidget? bottom,
+    String? label,
+    bool? centerTitle,
+    Widget? trailing,
+  }) : super(
           key: key,
 
           backgroundColor: Colors.white,
@@ -17,35 +22,49 @@ class CustomAppBar extends AppBar {
           elevation: 0,
 
           // menu icon
-          leading: IconButton(
-            icon: const Icon(Icons.menu, size: 28),
-            onPressed: () => Utils.openDrawer(),
+          leading: Row(
+            children: [
+              IconButton(
+                icon: const Icon(Icons.menu, size: 28),
+                onPressed: () => Utils.openDrawer(),
+              ),
+            ],
           ),
 
           // center logo
-          centerTitle: true,
-          title: SvgPicture.asset(
-            AssetConstants.logo,
-            height: 25,
-            width: 25,
-          ),
+          centerTitle: centerTitle ?? true,
+          title: label != null
+              ? Text(
+                  label,
+                  style: const TextStyle(fontSize: 12),
+                )
+              : SvgPicture.asset(
+                  AssetConstants.logo,
+                  height: 25,
+                  width: 25,
+                ),
 
-          // search icon
+          // trailing or search icon (default)
           actions: [
-            const Padding(
-              padding: EdgeInsets.only(right: 15),
-              child: Icon(
-                CupertinoIcons.search,
-                size: 28,
-              ),
-            ),
+            trailing ??
+                const Padding(
+                  padding: EdgeInsets.only(right: 15),
+                  child: Icon(
+                    CupertinoIcons.search,
+                    size: 28,
+                  ),
+                ),
           ],
 
           // bottom
           bottom: bottom,
         );
 
-  factory CustomAppBar.withTabBar({Key? key, required List<Widget> tabs}) =>
+  factory CustomAppBar.withTabBar({
+    Key? key,
+    required List<Widget> tabs,
+    bool showHeader = true,
+  }) =>
       CustomAppBar(
           key: key,
           bottom: PreferredSize(
@@ -54,7 +73,7 @@ class CustomAppBar extends AppBar {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 // title
-                const _TitleSection(),
+                if (showHeader) const _TitleSection(),
 
                 // tab bar
                 SizedBox(

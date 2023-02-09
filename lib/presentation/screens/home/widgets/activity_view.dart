@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import '../../widgets/board_card.dart';
+import '../../../widgets/board_card.dart';
 import 'article_card.dart';
 import 'audio_card.dart';
-import '../../widgets/post_card.dart';
+import '../../../widgets/post_card.dart';
 
-import '../../core/constants/constants.dart';
-import '../../widgets/horizontal_scoll_view.dart';
+import '../../../core/constants/constants.dart';
+import '../../../widgets/horizontal_scoll_view.dart';
 
 class HomeActivityTabView extends StatelessWidget {
   const HomeActivityTabView({super.key});
@@ -44,11 +44,7 @@ class HomeActivityTabView extends StatelessWidget {
         HorizontalScrollView(
           viewHeight: 110,
           title: 'Pegacasts',
-          trailing: const Text(
-            "View All ",
-            style:
-                TextStyle(decoration: TextDecoration.underline, fontSize: 13),
-          ),
+          viewAllTrailing: true,
           itemBuilder: (context, index) => const AudioCard(),
           itemCount: 10,
         ),
@@ -57,7 +53,9 @@ class HomeActivityTabView extends StatelessWidget {
         HorizontalScrollView(
           viewHeight: 160,
           title: 'Pegacasts',
-          itemBuilder: (context, index) => const PegaBoardCard(),
+          itemBuilder: (context, index) => PegBoardCard(
+            title: 'floral still life $index',
+          ),
           itemCount: 10,
         ),
       ],

@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../core/constants/asset_constants.dart';
-import '../../core/constants/ui_constants.dart';
-import '../../widgets/profile_avathar.dart';
+import '../../../core/constants/asset_constants.dart';
+import '../../../core/constants/ui_constants.dart';
+import '../../../widgets/profile_avathar.dart';
 
 class AudioCard extends StatelessWidget {
   const AudioCard({

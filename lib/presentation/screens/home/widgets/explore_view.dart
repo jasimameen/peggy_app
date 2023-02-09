@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:peggy/presentation/widgets/post_card.dart';
 
-import '../../core/constants/constants.dart';
+import '../../../core/constants/constants.dart';
 import 'filter_bar.dart';
 
 class HomeExploreTabView extends StatelessWidget {
