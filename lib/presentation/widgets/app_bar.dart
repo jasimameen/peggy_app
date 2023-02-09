@@ -32,7 +32,7 @@ class CustomAppBar extends AppBar {
           ),
 
           // center logo
-          centerTitle: centerTitle ?? true,
+          centerTitle: centerTitle ?? label != null ? false : true,
           title: label != null
               ? Text(
                   label,
@@ -46,14 +46,14 @@ class CustomAppBar extends AppBar {
 
           // trailing or search icon (default)
           actions: [
-            trailing ??
-                const Padding(
-                  padding: EdgeInsets.only(right: 15),
-                  child: Icon(
+            Padding(
+              padding: const EdgeInsets.only(right: 15),
+              child: trailing ??
+                  const Icon(
                     CupertinoIcons.search,
                     size: 28,
                   ),
-                ),
+            ),
           ],
 
           // bottom

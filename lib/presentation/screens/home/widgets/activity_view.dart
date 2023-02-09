@@ -52,7 +52,7 @@ class HomeActivityTabView extends StatelessWidget {
         // pegaboards
         HorizontalScrollView(
           viewHeight: 160,
-          title: 'Pegacasts',
+          title: 'Pegboards',
           itemBuilder: (context, index) => PegBoardCard(
             title: 'floral still life $index',
           ),

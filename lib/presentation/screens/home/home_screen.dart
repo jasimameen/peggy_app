@@ -17,6 +17,8 @@ class HomeScreen extends StatelessWidget {
       child: Scaffold(
         // key: Utils.drawerKey,
         appBar: CustomAppBar.withTabBar(tabs: tabs),
+
+        // layout starts here
         body: const Padding(
           padding: EdgeInsets.all(15),
 

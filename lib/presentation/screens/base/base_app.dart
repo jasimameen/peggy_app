@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:peggy/presentation/core/utils/utils.dart';
 import 'package:peggy/presentation/screens/notifications/notifications_screen.dart';
 import 'package:peggy/presentation/screens/pegboards/pegboards_screen.dart';
+import 'package:peggy/presentation/screens/profile/profile_screen.dart';
 import 'widgets/bottom_nav_bar.dart';
 import '../home/home_screen.dart';
 import '../../widgets/comming_soon_screen.dart';
@@ -16,7 +17,7 @@ class BaseScreen extends StatelessWidget {
     HomeScreen(),
     PegboardScreen(),
     NotificationsScreen(),
-    ComingSoonScreen(text: 'Profile'),
+    ProfileScreen(),
   ];
 
   @override
