@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:peggy/core/enums/user_enum.dart';
+import 'package:peggy/presentation/screens/notifications/notifications_screen.dart';
 
 import '../../screens/home/widgets/custom_list_tile.dart';
 import 'asset_constants.dart';
@@ -26,5 +28,14 @@ class Dummy {
     Image.asset(AssetConstants.artwork1, fit: BoxFit.cover),
     Image.asset(AssetConstants.artwork1, fit: BoxFit.cover),
     Image.asset(AssetConstants.artwork1, fit: BoxFit.cover),
+  ];
+
+  static var notificateSuggessions = [
+    const NotifyTileUser('Andrew Most', UserType.collecter),
+    const NotifyTileUser('Ivana S', UserType.collecter),
+    const NotifyTileUser('Vincent Coleman', UserType.collecter),
+    const NotifyTileUser('junghun lee', UserType.collecter),
+    const NotifyTileUser('Adam Hijleh', UserType.collecter),
+    const NotifyTileUser('Cat D', UserType.collecter),
   ];
 }
