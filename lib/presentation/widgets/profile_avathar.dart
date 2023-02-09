@@ -23,11 +23,22 @@ class ProfileAvathar extends CircleAvatar {
           key: key,
           radius: radius,
           backgroundColor: const Color.fromARGB(255, 219, 216, 216),
+          backgroundImage: AssetImage(image),
+          child: SvgPicture.asset(image, fit: BoxFit.cover),
+        );
+
+  ProfileAvathar.svgImage({
+    Key? key,
+    required String image,
+    double? radius,
+  })  : assert(image.isNotEmpty),
+        super(
+          key: key,
+          radius: radius,
+          backgroundColor: const Color.fromARGB(255, 219, 216, 216),
           child: Padding(
             padding: const EdgeInsets.all(3),
-            child: image.endsWith('.svg')
-                ? SvgPicture.asset(image)
-                : Image.asset(image),
+            child: SvgPicture.asset(image, fit: BoxFit.cover),
           ),
         );
 

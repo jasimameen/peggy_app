@@ -9,9 +9,10 @@ class PostCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      constraints: const BoxConstraints(maxHeight: 570),
+    return LimitedBox(
+      maxHeight: 600,
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
           // title
           const PostCardTitleBar(),

@@ -56,7 +56,7 @@ class _AudioMetaBar extends StatelessWidget {
     return Row(
       children: [
         // peggy logo
-        ProfileAvathar.image(image: AssetConstants.logo, radius: 10),
+        ProfileAvathar.svgImage(image: AssetConstants.logo, radius: 10),
 
         UIConstants.width5,
 

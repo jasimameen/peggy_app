@@ -1,11 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:peggy/presentation/core/utils/utils.dart';
 import '../core/constants/asset_constants.dart';
 import '../core/constants/ui_constants.dart';
 import 'profile_avathar.dart';
 
-class CustomAppBar extends AppBar{
+class CustomAppBar extends AppBar {
   /// default appbar
   CustomAppBar({Key? key, PreferredSizeWidget? bottom})
       : super(
@@ -16,7 +17,10 @@ class CustomAppBar extends AppBar{
           elevation: 0,
 
           // menu icon
-          leading: const Icon(Icons.menu, size: 28),
+          leading: IconButton(
+            icon: const Icon(Icons.menu, size: 28),
+            onPressed: () => Utils.openDrawer(),
+          ),
 
           // center logo
           centerTitle: true,
@@ -67,7 +71,6 @@ class CustomAppBar extends AppBar{
               ],
             ),
           ));
-
 }
 
 class _TitleSection extends StatelessWidget {

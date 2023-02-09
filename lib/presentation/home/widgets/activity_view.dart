@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../core/constants/pallette.dart';
 import '../../widgets/board_card.dart';
 import 'article_card.dart';
 import 'audio_card.dart';
-import 'custom_list_tile.dart';
 import '../../widgets/post_card.dart';
 
 import '../../core/constants/constants.dart';
@@ -16,6 +14,7 @@ class HomeActivityTabView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       shrinkWrap: true,
+      physics: const BouncingScrollPhysics(),
       // TODO: add pagination and move listview to listview.builder
       children: [
         // post card
@@ -60,10 +59,6 @@ class HomeActivityTabView extends StatelessWidget {
           title: 'Pegacasts',
           itemBuilder: (context, index) => const PegaBoardCard(),
           itemCount: 10,
-        ),
-
-        Container(
-          height: 1000,
         ),
       ],
     );

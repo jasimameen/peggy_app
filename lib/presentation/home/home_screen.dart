@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:peggy/presentation/core/utils/utils.dart';
 import '../core/constants/ui_constants.dart';
 import 'widgets/activity_view.dart';
 import 'widgets/explore_view.dart';
@@ -15,8 +16,8 @@ class HomeScreen extends StatelessWidget {
     return DefaultTabController(
       length: tabs.length,
       child: Scaffold(
+        // key: Utils.drawerKey,
         appBar: CustomAppBar.withTabBar(tabs: tabs),
-        
         body: const Padding(
           padding: EdgeInsets.all(15),
 
