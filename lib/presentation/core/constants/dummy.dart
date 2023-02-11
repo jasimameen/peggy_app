@@ -14,7 +14,9 @@ class Dummy {
       subtitle:
           '''Peggy has partnered with 30 contemporary art\ngalleries from around the world to bring you the\nmost sought-after art on the market''',
     ),
+    
     UIConstants.divider,
+
     CustomListTile(
       icon: Icons.color_lens,
       title: 'Proven Artists',
@@ -30,7 +32,7 @@ class Dummy {
     Image.asset(AssetConstants.artwork1, fit: BoxFit.cover),
   ];
 
-  static var notificateSuggessions = [
+  static List notificateSuggessions = [
     const NotifyTileUser('Andrew Most', UserType.collecter),
     const NotifyTileUser('Ivana S', UserType.collecter),
     const NotifyTileUser('Vincent Coleman', UserType.collecter),

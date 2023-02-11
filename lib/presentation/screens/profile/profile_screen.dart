@@ -8,7 +8,7 @@ import 'package:peggy/presentation/widgets/horizontal_scoll_view.dart';
 import 'package:peggy/presentation/widgets/profile_avathar.dart';
 
 import '../../widgets/board_card.dart';
-import 'widgets/artist_card.dart';
+import 'widgets/rounded_user_card.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -79,7 +79,7 @@ class ProfileScreen extends StatelessWidget {
               HorizontalScrollView(
                 viewHeight: 150,
                 title: 'Artists Pegboarded',
-                itemBuilder: (context, index) => const ArtistCard(),
+                itemBuilder: (context, index) => const RoundedUserCard(),
                 itemCount: 10,
               ),
 
@@ -92,6 +92,16 @@ class ProfileScreen extends StatelessWidget {
                 viewAllTrailing: true,
                 itemBuilder: (context, index) =>
                     const PegBoardCard(title: 'Hike Pegboard'),
+                itemCount: 10,
+              ),
+
+              UIConstants.divider,
+
+              // related collectors
+              HorizontalScrollView(
+                viewHeight: 150,
+                title: 'Related Collectors',
+                itemBuilder: (context, index) => const RoundedUserCard(),
                 itemCount: 10,
               ),
             ],
