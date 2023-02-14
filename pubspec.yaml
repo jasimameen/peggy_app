@@ -15,11 +15,23 @@ dependencies:
   flutter_svg: ^1.1.6
   flutter_screenutil: ^5.6.1
   google_fonts: ^4.0.3
+  auto_route: ^5.0.4
+  get_it: ^7.2.0
+  font_awesome_flutter: ^10.4.0
+  
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
+  build_runner: ^2.3.3
+  auto_route_generator: ^5.0.3
+  flutter_native_splash: ^2.2.17
+
+flutter_native_splash:
+  color: "#f2f1ed"
+  image: assets/images/peggy.png
+
   
 flutter:
   uses-material-design: true
