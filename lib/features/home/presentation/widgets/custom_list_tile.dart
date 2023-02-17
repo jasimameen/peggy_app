@@ -1,6 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:peggy/core/presentation/widgets/profile_avathar.dart';
+import 'package:peggy/common/presentation/widgets/profile_avathar.dart';
 
 class CustomListTile extends StatelessWidget {
   final IconData icon;

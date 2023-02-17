@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../core/presentation/widgets/profile_avathar.dart';
+import '../../../common/presentation/widgets/profile_avathar.dart';
 
 ValueNotifier<int> indexChangeNotifier = ValueNotifier(0);
 

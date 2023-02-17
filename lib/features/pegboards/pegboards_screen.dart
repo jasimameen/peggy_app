@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../core/presentation/widgets/app_bar.dart';
-import '../../core/presentation/widgets/board_card.dart';
+import '../../common/presentation/widgets/app_bar.dart';
+import '../../common/presentation/widgets/board_card.dart';
 
 class PegboardScreen extends StatelessWidget {
   const PegboardScreen({super.key});

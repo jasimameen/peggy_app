@@ -1,6 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:peggy/core/constants/pallette.dart';
+import 'package:peggy/common/constants/pallette.dart';
 
 class ProfileButton extends StatelessWidget {
   final String label;

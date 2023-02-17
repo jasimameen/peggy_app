@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/constants/constants.dart';
+import '../../../../common/constants/constants.dart';
 import '../../../../core/enums/user_enum.dart';
-import '../../../../core/presentation/widgets/app_bar.dart';
-import '../../../../core/presentation/widgets/profile_avathar.dart';
+import '../../../../common/presentation/widgets/app_bar.dart';
+import '../../../../common/presentation/widgets/profile_avathar.dart';
 
 const _emptyText =
     "Nothing to see here, yet!\nThis is where you'll be able to come and see helpful notifications.";
@@ -108,7 +108,7 @@ class SuggestionTile extends ListTile {
 
             // User type
             subtitle: Text(
-              '$userType',
+              userType.name,
               style: const TextStyle(fontSize: 10),
             ),
 

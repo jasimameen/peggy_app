@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/constants/constants.dart';
-import '../../../core/presentation/widgets/app_bar.dart';
-import '../../../core/presentation/widgets/board_card.dart';
-import '../../../core/presentation/widgets/horizontal_scoll_view.dart';
-import '../../../core/presentation/widgets/profile_avathar.dart';
+import '../../../common/constants/constants.dart';
+import '../../../common/presentation/widgets/app_bar.dart';
+import '../../../common/presentation/widgets/board_card.dart';
+import '../../../common/presentation/widgets/horizontal_scoll_view.dart';
+import '../../../common/presentation/widgets/profile_avathar.dart';
 import '../widgets/profile_rec_button.dart';
 import '../widgets/rounded_user_card.dart';
 

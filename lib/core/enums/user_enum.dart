@@ -1,5 +1,4 @@
 enum UserType {
   collecter,
-  artist,
+  artist;
 }
-

@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
-import 'package:peggy/core/presentation/widgets/app_bar.dart';
+import 'package:peggy/common/presentation/widgets/app_bar.dart';
 
-import '../../../../core/constants/constants.dart';
-import '../../../../core/presentation/widgets/section_title.dart';
+import '../../../../common/constants/constants.dart';
+import '../../../../common/presentation/widgets/section_title.dart';
 import '../widgets/suggession_card.dart';
 
 class SearchScreen extends StatelessWidget {

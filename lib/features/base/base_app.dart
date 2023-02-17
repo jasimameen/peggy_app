@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../core/presentation/utils/utils.dart';
+import '../../core/utils/utils.dart';
 import '../home/presentation/pages/home_screen.dart';
 import '../notifications/presentation/pages/notifications_screen.dart';
 import '../pegboards/pegboards_screen.dart';

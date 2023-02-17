@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'core/di/injection.dart';
+import 'injection.dart';
 import 'core/navigation/app_router.gr.dart';
-import 'core/presentation/responsive.dart';
+import 'common/presentation/responsive.dart';
 
 Future<void> main() async {
   /// singletons, factories ...

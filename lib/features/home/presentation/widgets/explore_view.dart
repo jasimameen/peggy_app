@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../../core/constants/constants.dart';
-import '../../../../core/presentation/widgets/post_card.dart';
+import '../../../../common/constants/constants.dart';
+import '../../../../common/presentation/widgets/post_card.dart';
 
 
 import 'filter_bar.dart';

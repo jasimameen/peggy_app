@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/presentation/widgets/profile_avathar.dart';
+import '../../../../common/presentation/widgets/profile_avathar.dart';
 
 class SuggestionCard extends StatelessWidget {
   final String title;

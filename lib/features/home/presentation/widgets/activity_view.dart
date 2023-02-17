@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:peggy/features/home/presentation/pages/some_page.dart';
 
-import '../../../../core/constants/constants.dart';
-import '../../../../core/presentation/widgets/board_card.dart';
-import '../../../../core/presentation/widgets/horizontal_scoll_view.dart';
-import '../../../../core/presentation/widgets/post_card.dart';
+import '../../../../common/constants/constants.dart';
+import '../../../../common/presentation/widgets/board_card.dart';
+import '../../../../common/presentation/widgets/horizontal_scoll_view.dart';
+import '../../../../common/presentation/widgets/post_card.dart';
 import 'article_card.dart';
 import 'audio_card.dart';
 
@@ -17,6 +18,12 @@ class HomeActivityTabView extends StatelessWidget {
       physics: const BouncingScrollPhysics(),
       // TODO: add pagination and move listview to listview.builder
       children: [
+        ElevatedButton(
+            onPressed: () {
+              Navigator.push(context, SomPage.route());
+            },
+            child: const Text('Got to some page')),
+
         // post card
         const PostCard(
           images: [AssetConstants.artwork1],
@@ -31,7 +38,7 @@ class HomeActivityTabView extends StatelessWidget {
           itemCount: 10,
         ),
 
-        // hadpicked galleris and proven artists
+        // handpicked galleris and proven artists
         ...Dummy.homeActivityListTiles,
 
         // articles

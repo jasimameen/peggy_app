@@ -3,10 +3,10 @@ import 'dart:developer';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../../di/injection.dart';
+import '../../../injection.dart';
 import '../../constants/constants.dart';
-import '../../navigation/app_router.gr.dart';
-import '../utils/utils.dart';
+import '../../../core/navigation/app_router.gr.dart';
+import '../../../core/utils/utils.dart';
 import 'profile_avathar.dart';
 
 class CustomAppBar extends AppBar {

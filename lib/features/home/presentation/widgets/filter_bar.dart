@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../../../../core/constants/constants.dart';
-import '../../../../core/presentation/widgets/profile_avathar.dart';
+import '../../../../common/constants/constants.dart';
+import '../../../../common/presentation/widgets/profile_avathar.dart';
 
 class FilterBar extends StatelessWidget {
   const FilterBar({
