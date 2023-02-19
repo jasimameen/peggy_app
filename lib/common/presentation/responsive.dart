@@ -25,12 +25,13 @@ class Responsive extends StatelessWidget {
         devicePixelRatio: 420 / width,
         textScaleFactor: textScaleFactor,
       ),
-      child: PixelPerfect(
-        assetPath: Mockups.search,
-        initOpacity: .3,
-        scale: scale,
-        child: child,
-      ),
+      child: child,
+      // child: PixelPerfect(
+      //   assetPath: Mockups.search,
+      //   initOpacity: .3,
+      //   scale: scale,
+      //   child: child,
+      // ),
     );
   }
 }

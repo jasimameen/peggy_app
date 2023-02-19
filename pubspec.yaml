@@ -22,6 +22,9 @@ dependencies:
   fpdart: ^0.4.0
   flutter_bloc: ^8.1.2
   freezed_annotation: ^2.2.0
+  dio: ^5.0.0
+  shimmer: ^2.0.0
+  lottie: ^2.2.0
   
 
 dev_dependencies:
@@ -45,6 +48,7 @@ flutter:
     - assets/ui/ # all ui design files
     - assets/icons/
     - assets/images/
+    - assets/lottie/ # animations
 
   # fonts:
   #   - family: Schyler

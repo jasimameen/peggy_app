@@ -1,14 +1,29 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
+
 import '../../constants/constants.dart';
 import 'profile_avathar.dart';
 
 class PostCard extends StatelessWidget {
-  final List<String> images;
-  const PostCard({
-    super.key,
-    required this.images,
-  });
+  final List<String> profileImages;
+  final String username;
+  final String postImageUrl;
+
+  PostCard({
+    Key? key,
+    required String profileImage,
+    required this.username,
+    required this.postImageUrl,
+  })  : profileImages = [profileImage],
+        super(key: key);
+
+  const PostCard.stacked({
+    Key? key,
+    required this.profileImages,
+    required this.username,
+    required this.postImageUrl,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,13 +33,23 @@ class PostCard extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           // title
-          PostCardTitleBar(images: images),
+          PostCardTitleBar(username: username, images: profileImages),
 
           // image
           Flexible(
-            child: Image.asset(
-              AssetConstants.artwork1,
-              fit: BoxFit.fitWidth,
+            child: Placeholder(
+              child: Image.network(
+                postImageUrl,
+                fit: BoxFit.fitWidth,
+                frameBuilder: (ctx, child, frame, _) => frame != null
+                    ? child
+                    : Lottie.asset(
+                        LottiFiles.aristDrawing,
+                        height: 400,
+                        width: double.maxFinite,
+                        fit: BoxFit.fill,
+                      ),
+              ),
             ),
           ),
 
@@ -39,15 +64,19 @@ class PostCard extends StatelessWidget {
 
 class PostCardTitleBar extends StatelessWidget {
   final List<String> images;
+  final String username;
 
   const PostCardTitleBar({
     Key? key,
     required this.images,
+    required this.username,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     const greyTextStyle = TextStyle(color: Colors.grey);
+    bool showSecondProfile = images.length >= 2;
+
     return SizedBox(
       height: 57,
       child: Row(
@@ -56,12 +85,14 @@ class PostCardTitleBar extends StatelessWidget {
           Stack(
             children: [
               Padding(
-                padding: const EdgeInsets.only(right: 5, bottom: 5),
+                padding: showSecondProfile
+                    ? const EdgeInsets.only(right: 5, bottom: 5)
+                    : EdgeInsets.zero,
                 child: ProfileAvathar.image(image: images[0], radius: 15),
               ),
 
               // show second avathar only when two items
-              if (images.length >= 2)
+              if (showSecondProfile)
                 Container(
                     margin: const EdgeInsets.only(left: 8, top: 5),
                     decoration: BoxDecoration(
@@ -79,14 +110,14 @@ class PostCardTitleBar extends StatelessWidget {
               ? Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
+                  children: [
                     // upper text
                     Text.rich(
                       TextSpan(
-                        style: TextStyle(fontSize: 10),
+                        style: const TextStyle(fontSize: 10),
                         children: [
-                          TextSpan(text: 'Katelyn Smith'),
-                          TextSpan(text: '. 2m', style: greyTextStyle),
+                          TextSpan(text: username),
+                          const TextSpan(text: '. 2m', style: greyTextStyle),
                         ],
                       ),
                     ),
@@ -94,7 +125,7 @@ class PostCardTitleBar extends StatelessWidget {
                     UIConstants.height5,
 
                     // lower text
-                    Text.rich(TextSpan(
+                    const Text.rich(TextSpan(
                       style: TextStyle(fontSize: 12),
                       children: [
                         TextSpan(text: 'Pegaboarded'),

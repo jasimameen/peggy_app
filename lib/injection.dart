@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:peggy/features/home/data/datasources/home_feed_remote_datasource.dart';
 import 'package:peggy/features/home/data/repositories/home_feed_repository_impl.dart';
@@ -32,5 +33,8 @@ Future<void> initInjection() async {
 
   // datasources
   sl.registerLazySingleton<HomeFeedRemoteDataSource>(
-      () => HomeFeedRemoteDataSourceImpl());
+      () => HomeFeedRemoteDataSourceImpl(sl()));
+
+  //! External
+  sl.registerLazySingleton(() => Dio());
 }

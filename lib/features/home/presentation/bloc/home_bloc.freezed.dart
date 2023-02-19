@@ -278,49 +278,12 @@ abstract class _GetPosts implements HomeEvent {
 
 /// @nodoc
 mixin _$HomeState {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(Either<Failure, List<Post>> posts) posts,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(Either<Failure, List<Post>> posts)? posts,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(Either<Failure, List<Post>> posts)? posts,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Posts value) posts,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Posts value)? posts,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Posts value)? posts,
-    required TResult orElse(),
-  }) =>
+  List<Post> get posts => throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
+  bool get hasError => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $HomeStateCopyWith<HomeState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -328,6 +291,8 @@ mixin _$HomeState {
 abstract class $HomeStateCopyWith<$Res> {
   factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) then) =
       _$HomeStateCopyWithImpl<$Res, HomeState>;
+  @useResult
+  $Res call({List<Post> posts, bool isLoading, bool hasError});
 }
 
 /// @nodoc
@@ -339,356 +304,135 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? posts = null,
+    Object? isLoading = null,
+    Object? hasError = null,
+  }) {
+    return _then(_value.copyWith(
+      posts: null == posts
+          ? _value.posts
+          : posts // ignore: cast_nullable_to_non_nullable
+              as List<Post>,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      hasError: null == hasError
+          ? _value.hasError
+          : hasError // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$HomeStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$_Initial implements _Initial {
-  const _$_Initial();
-
+abstract class _$$_HStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
+  factory _$$_HStateCopyWith(_$_HState value, $Res Function(_$_HState) then) =
+      __$$_HStateCopyWithImpl<$Res>;
   @override
-  String toString() {
-    return 'HomeState.initial()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(Either<Failure, List<Post>> posts) posts,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(Either<Failure, List<Post>> posts)? posts,
-  }) {
-    return initial?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(Either<Failure, List<Post>> posts)? posts,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Posts value) posts,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Posts value)? posts,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Posts value)? posts,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Initial implements HomeState {
-  const factory _Initial() = _$_Initial;
-}
-
-/// @nodoc
-abstract class _$$_LoadingCopyWith<$Res> {
-  factory _$$_LoadingCopyWith(
-          _$_Loading value, $Res Function(_$_Loading) then) =
-      __$$_LoadingCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_LoadingCopyWithImpl<$Res>
-    extends _$HomeStateCopyWithImpl<$Res, _$_Loading>
-    implements _$$_LoadingCopyWith<$Res> {
-  __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$_Loading implements _Loading {
-  const _$_Loading();
-
-  @override
-  String toString() {
-    return 'HomeState.loading()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Loading);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(Either<Failure, List<Post>> posts) posts,
-  }) {
-    return loading();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(Either<Failure, List<Post>> posts)? posts,
-  }) {
-    return loading?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(Either<Failure, List<Post>> posts)? posts,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Posts value) posts,
-  }) {
-    return loading(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Posts value)? posts,
-  }) {
-    return loading?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Posts value)? posts,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Loading implements HomeState {
-  const factory _Loading() = _$_Loading;
-}
-
-/// @nodoc
-abstract class _$$_PostsCopyWith<$Res> {
-  factory _$$_PostsCopyWith(_$_Posts value, $Res Function(_$_Posts) then) =
-      __$$_PostsCopyWithImpl<$Res>;
   @useResult
-  $Res call({Either<Failure, List<Post>> posts});
+  $Res call({List<Post> posts, bool isLoading, bool hasError});
 }
 
 /// @nodoc
-class __$$_PostsCopyWithImpl<$Res>
-    extends _$HomeStateCopyWithImpl<$Res, _$_Posts>
-    implements _$$_PostsCopyWith<$Res> {
-  __$$_PostsCopyWithImpl(_$_Posts _value, $Res Function(_$_Posts) _then)
+class __$$_HStateCopyWithImpl<$Res>
+    extends _$HomeStateCopyWithImpl<$Res, _$_HState>
+    implements _$$_HStateCopyWith<$Res> {
+  __$$_HStateCopyWithImpl(_$_HState _value, $Res Function(_$_HState) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? posts = null,
+    Object? isLoading = null,
+    Object? hasError = null,
   }) {
-    return _then(_$_Posts(
+    return _then(_$_HState(
       posts: null == posts
-          ? _value.posts
+          ? _value._posts
           : posts // ignore: cast_nullable_to_non_nullable
-              as Either<Failure, List<Post>>,
+              as List<Post>,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      hasError: null == hasError
+          ? _value.hasError
+          : hasError // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_Posts implements _Posts {
-  const _$_Posts({required this.posts});
+class _$_HState implements _HState {
+  _$_HState(
+      {required final List<Post> posts,
+      required this.isLoading,
+      required this.hasError})
+      : _posts = posts;
+
+  final List<Post> _posts;
+  @override
+  List<Post> get posts {
+    if (_posts is EqualUnmodifiableListView) return _posts;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_posts);
+  }
 
   @override
-  final Either<Failure, List<Post>> posts;
+  final bool isLoading;
+  @override
+  final bool hasError;
 
   @override
   String toString() {
-    return 'HomeState.posts(posts: $posts)';
+    return 'HomeState(posts: $posts, isLoading: $isLoading, hasError: $hasError)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Posts &&
-            (identical(other.posts, posts) || other.posts == posts));
+            other is _$_HState &&
+            const DeepCollectionEquality().equals(other._posts, _posts) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading) &&
+            (identical(other.hasError, hasError) ||
+                other.hasError == hasError));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, posts);
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(_posts), isLoading, hasError);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PostsCopyWith<_$_Posts> get copyWith =>
-      __$$_PostsCopyWithImpl<_$_Posts>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(Either<Failure, List<Post>> posts) posts,
-  }) {
-    return posts(this.posts);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(Either<Failure, List<Post>> posts)? posts,
-  }) {
-    return posts?.call(this.posts);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(Either<Failure, List<Post>> posts)? posts,
-    required TResult orElse(),
-  }) {
-    if (posts != null) {
-      return posts(this.posts);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Posts value) posts,
-  }) {
-    return posts(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Posts value)? posts,
-  }) {
-    return posts?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Posts value)? posts,
-    required TResult orElse(),
-  }) {
-    if (posts != null) {
-      return posts(this);
-    }
-    return orElse();
-  }
+  _$$_HStateCopyWith<_$_HState> get copyWith =>
+      __$$_HStateCopyWithImpl<_$_HState>(this, _$identity);
 }
 
-abstract class _Posts implements HomeState {
-  const factory _Posts({required final Either<Failure, List<Post>> posts}) =
-      _$_Posts;
+abstract class _HState implements HomeState {
+  factory _HState(
+      {required final List<Post> posts,
+      required final bool isLoading,
+      required final bool hasError}) = _$_HState;
 
-  Either<Failure, List<Post>> get posts;
+  @override
+  List<Post> get posts;
+  @override
+  bool get isLoading;
+  @override
+  bool get hasError;
+  @override
   @JsonKey(ignore: true)
-  _$$_PostsCopyWith<_$_Posts> get copyWith =>
+  _$$_HStateCopyWith<_$_HState> get copyWith =>
       throw _privateConstructorUsedError;
 }

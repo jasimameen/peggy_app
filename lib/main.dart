@@ -8,7 +8,7 @@ import 'common/presentation/responsive.dart';
 Future<void> main() async {
   /// singletons, factories ...
   await initInjection();
-
+  
   //
   runApp(MyApp());
 }
@@ -35,7 +35,8 @@ class MyApp extends StatelessWidget {
         textTheme: GoogleFonts.cabinTextTheme(Theme.of(context).textTheme),
       ),
 
-      // starts
+      // add responsiveness to the application
+      // child will came from the approuter
       builder: (_, child) => Responsive(child: child!),
     );
   }

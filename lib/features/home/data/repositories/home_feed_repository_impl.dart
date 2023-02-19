@@ -1,10 +1,11 @@
 import 'package:fpdart/fpdart.dart';
-import 'package:peggy/core/error/exceptions.dart';
-import 'package:peggy/core/error/failures.dart';
-import 'package:peggy/features/home/data/datasources/home_feed_remote_datasource.dart';
-import 'package:peggy/features/home/domain/entities/post.dart';
-import 'package:peggy/core/type_defs.dart';
-import 'package:peggy/features/home/domain/repositories/home_feed_repository.dart';
+
+import '../../../../core/error/exceptions.dart';
+import '../../../../core/error/failures.dart';
+import '../../../../core/type_defs.dart';
+import '../../domain/entities/post.dart';
+import '../../domain/repositories/home_feed_repository.dart';
+import '../datasources/home_feed_remote_datasource.dart';
 
 class HomeFeedRepositoryImpl implements HomeFeedRepository {
   final HomeFeedRemoteDataSource _remoteDataSource;
@@ -14,8 +15,8 @@ class HomeFeedRepositoryImpl implements HomeFeedRepository {
   @override
   FutureEitherList<Post> getallPosts() async {
     try {
-      final res = await _remoteDataSource.getAllPosts();
-      return right(res.map((model) => model.toEntity()).toList());
+      final remotePosts = await _remoteDataSource.getAllPosts();
+      return right(remotePosts.map((postModel) => postModel.toEntity).toList());
     } on ServerException {
       return left(ServerFailure());
     } on Exception {

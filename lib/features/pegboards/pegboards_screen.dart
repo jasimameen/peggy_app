@@ -21,10 +21,9 @@ class PegboardScreen extends StatelessWidget {
           physics: const BouncingScrollPhysics(),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
-            mainAxisSpacing: 45,
+            mainAxisSpacing: 45
           ),
           itemBuilder: (context, index) => PegBoardCard(
-            size: 180,
             title: index != 4 ? 'My First Pegboard $index' : 'New Pegboard',
             addPegBoard: index == 4, // true when last item occurs
           ),

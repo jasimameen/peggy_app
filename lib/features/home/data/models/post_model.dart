@@ -1,43 +1,37 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
-
+import 'package:peggy/features/home/data/models/user_model.dart';
 import 'package:peggy/features/home/domain/entities/post.dart';
+import 'package:peggy/features/home/domain/entities/user.dart';
 
 class PostModel {
-  final int id;
-  final String user;
-  final String image;
-  final DateTime createdAt;
-  PostModel({
+  const PostModel({
     required this.id,
-    required this.user,
-    required this.image,
     required this.createdAt,
+    required this.imageUrl,
+    required this.user,
   });
 
-  Map<String, dynamic> toMap() {
-    return <String, dynamic>{
-      'id': id,
-      'user': user,
-      'image': image,
-      'createdAt': createdAt.millisecondsSinceEpoch,
-    };
-  }
+  final String id;
+  final String createdAt;
+  final String imageUrl;
+  final User user;
 
   factory PostModel.fromMap(Map<String, dynamic> map) {
     return PostModel(
-      id: map['id'] as int,
-      user: map['user'] as String,
-      image: map['image'] ?? '',
-      createdAt: DateTime.fromMillisecondsSinceEpoch(map['createdAt'] as int),
+      id: map['id'] as String,
+      createdAt: map['created_at'] ?? '',
+      imageUrl: map['urls']['small'] ?? '',
+      user: UserModel.fromMap(map['user'] as Map<String, dynamic>).toEntiy,
     );
   }
-
-  String toJson() => json.encode(toMap());
 
   factory PostModel.fromJson(String source) =>
       PostModel.fromMap(json.decode(source) as Map<String, dynamic>);
 
-
-  Post toEntity() => Post(id: id, user: user, image: image, createdAt: createdAt);
+  Post get toEntity => Post(
+        id: id,
+        createdAt: createdAt,
+        imageUrl: imageUrl,
+        user: user,
+      );
 }

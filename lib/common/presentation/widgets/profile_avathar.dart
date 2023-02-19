@@ -3,7 +3,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../constants/constants.dart';
 
-
 class ProfileAvathar extends CircleAvatar {
   const ProfileAvathar(
       {Key? key, double? radius, Color? backgroundColor, Widget? child})
@@ -25,8 +24,8 @@ class ProfileAvathar extends CircleAvatar {
           key: key,
           radius: radius,
           backgroundColor: const Color.fromARGB(255, 219, 216, 216),
-          backgroundImage: AssetImage(image),
-          child: SvgPicture.asset(image, fit: BoxFit.cover),
+          backgroundImage: NetworkImage(image),
+          child: SvgPicture.network(image, fit: BoxFit.cover),
         );
 
   ProfileAvathar.svgImage({

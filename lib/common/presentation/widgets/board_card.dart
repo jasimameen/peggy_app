@@ -13,7 +13,7 @@ class PegBoardCard extends StatelessWidget {
   const PegBoardCard({
     Key? key,
     required this.title,
-    this.size = 125,
+    this.size = 185,
     this.addPegBoard = false,
   }) : super(key: key);
 
@@ -23,33 +23,45 @@ class PegBoardCard extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         // elements
-        Container(
-          height: size,
-          width: size,
-          decoration: BoxDecoration(border: Border.all(color: Colors.grey)),
-          child: addPegBoard
-              ? const Center(
-                  child: Icon(Icons.add_circle_outline_rounded),
-                )
-              : GridView.count(
-                  crossAxisCount: 2,
-                  childAspectRatio: 1 / 1,
-                  mainAxisSpacing: 1,
-                  crossAxisSpacing: 1,
-                  children: Dummy.pegaboardimages,
-                ),
+        Flexible(
+          child: Container(
+            height: size,
+            width: size,
+            clipBehavior: Clip.hardEdge,
+            decoration: BoxDecoration(border: Border.all(color: Colors.grey)),
+            child: addPegBoard
+                ? const Center(
+                    child: Icon(Icons.add_circle_outline_rounded),
+                  )
+                : Wrap(
+                    alignment: WrapAlignment.spaceBetween,
+                    runAlignment: WrapAlignment.spaceBetween,
+                    children: Dummy.pegaboardimages
+                        .map((image) => Image.network(
+                              image,
+                              fit: BoxFit.fill,
+                              height: 90.5,
+                              width: 90.5,
+                            ))
+                        .toList(),
+                  ),
+          ),
         ),
 
-        UIConstants.height10,
-
         // title
-        LimitedBox(
-          maxWidth: size * .80,
-          child: Text(
-            title,
-            style:
-                const TextStyle(fontSize: 12, overflow: TextOverflow.ellipsis),
-          ),
+        Flexible(
+          child: SizedBox(
+              height: 50,
+              width: size,
+              child: Text(
+                title,
+                maxLines: 1,
+                style: const TextStyle(
+                  fontSize: 12,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+            ),
         )
       ],
     );

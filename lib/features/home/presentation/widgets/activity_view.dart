@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:peggy/features/home/presentation/pages/some_page.dart';
 
 import '../../../../common/constants/constants.dart';
 import '../../../../common/presentation/widgets/board_card.dart';
@@ -18,15 +17,11 @@ class HomeActivityTabView extends StatelessWidget {
       physics: const BouncingScrollPhysics(),
       // TODO: add pagination and move listview to listview.builder
       children: [
-        ElevatedButton(
-            onPressed: () {
-              Navigator.push(context, SomPage.route());
-            },
-            child: const Text('Got to some page')),
-
         // post card
-        const PostCard(
-          images: [AssetConstants.artwork1],
+         PostCard(
+          username: 'Jasim Leske',
+          postImageUrl: 'https://static.independent.co.uk/2022/02/18/13/18095429-104810cb-e7ec-4644-9b90-953d3189982a.jpg',
+          profileImage: AssetConstants.artwork1,
         ),
 
         // peggy curation

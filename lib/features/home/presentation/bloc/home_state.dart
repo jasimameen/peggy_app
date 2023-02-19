@@ -2,9 +2,15 @@ part of 'home_bloc.dart';
 
 @freezed
 class HomeState with _$HomeState {
-  const factory HomeState.initial() = _Initial;
-  const factory HomeState.loading() = _Loading;
-  const factory HomeState.posts({
-    required EitherList<Post> posts,
-  }) = _Posts;
+  factory HomeState({
+    required List<Post> posts,
+    required bool isLoading,
+    required bool hasError,
+  }) = _HState;
+
+  factory HomeState.initial() => HomeState(
+        posts: [],
+        isLoading: false,
+        hasError: false,
+      );
 }
