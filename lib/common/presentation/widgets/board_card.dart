@@ -1,5 +1,5 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:peggy/core/utils/utils.dart';
 
 import '../../constants/constants.dart';
 
@@ -19,16 +19,17 @@ class PegBoardCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        // elements
-        Flexible(
-          child: Container(
+    return Flexible(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          // elements
+          Container(
             height: size,
             width: size,
-            clipBehavior: Clip.hardEdge,
-            decoration: BoxDecoration(border: Border.all(color: Colors.grey)),
+            decoration: addPegBoard
+                ? BoxDecoration(border: Border.all(color: Colors.grey))
+                : null,
             child: addPegBoard
                 ? const Center(
                     child: Icon(Icons.add_circle_outline_rounded),
@@ -46,24 +47,23 @@ class PegBoardCard extends StatelessWidget {
                         .toList(),
                   ),
           ),
-        ),
 
-        // title
-        Flexible(
-          child: SizedBox(
-              height: 50,
-              width: size,
-              child: Text(
-                title,
-                maxLines: 1,
-                style: const TextStyle(
-                  fontSize: 12,
-                  overflow: TextOverflow.ellipsis,
-                ),
+          10.pH,
+
+          // title
+          SizedBox(
+            width: size,
+            child: Text(
+              title,
+              maxLines: 1,
+              style: const TextStyle(
+                fontSize: 12,
+                overflow: TextOverflow.ellipsis,
               ),
             ),
-        )
-      ],
+          )
+        ],
+      ),
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:lottie/lottie.dart';
 import 'package:shimmer/shimmer.dart';
 import '../../../../common/constants/constants.dart';
 import '../../../../common/presentation/widgets/post_card.dart';
@@ -26,7 +27,7 @@ class HomeExploreTabView extends StatelessWidget {
           child: BlocBuilder<HomeBloc, HomeState>(
             builder: (context, state) {
               if (state.isLoading) {
-                return const Center(child: CupertinoActivityIndicator());
+                return Center(child: Lottie.asset(LottiFiles.loadingPaint));
               }
 
               if (state.hasError) {

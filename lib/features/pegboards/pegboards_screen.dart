@@ -17,17 +17,20 @@ class PegboardScreen extends StatelessWidget {
       /// grid view
       body: Padding(
         padding: const EdgeInsets.all(16),
-        child: GridView.builder(
-          physics: const BouncingScrollPhysics(),
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            mainAxisSpacing: 45
+        child: SingleChildScrollView(
+          child: Wrap(
+            children: List.generate(
+              5,
+              (index) => AspectRatio(
+                aspectRatio: 1 / 1,
+                child: PegBoardCard(
+                  title:
+                      index != 4 ? 'My First Pegboard $index' : 'New Pegboard',
+                  addPegBoard: index == 4, // true when last item occurs
+                ),
+              ),
+            ),
           ),
-          itemBuilder: (context, index) => PegBoardCard(
-            title: index != 4 ? 'My First Pegboard $index' : 'New Pegboard',
-            addPegBoard: index == 4, // true when last item occurs
-          ),
-          itemCount: 5,
         ),
       ),
     );

@@ -13,5 +13,8 @@ class AssetConstants {
 class LottiFiles {
   LottiFiles._();
 
+  static const peggyLogo = 'assets/lottie/peegy-logo.json';
+
   static const aristDrawing = 'assets/lottie/artist-drawing.json';
+  static const loadingPaint = 'assets/lottie/loading-pait.json';
 }

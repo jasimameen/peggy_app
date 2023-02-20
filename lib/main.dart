@@ -8,7 +8,7 @@ import 'common/presentation/responsive.dart';
 Future<void> main() async {
   /// singletons, factories ...
   await initInjection();
-  
+
   //
   runApp(MyApp());
 }
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp.router(
       // app options
       debugShowCheckedModeBanner: false,
-      title: 'peggy',
+      title: 'Peggy',
 
       // routing
       routerDelegate: _appRouter.delegate(),

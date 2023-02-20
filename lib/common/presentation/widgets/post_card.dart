@@ -135,12 +135,12 @@ class PostCardTitleBar extends StatelessWidget {
                     )),
                   ],
                 )
-              : const Text.rich(TextSpan(
-                  style: TextStyle(fontSize: 12),
+              : Text.rich(TextSpan(
+                  style: const TextStyle(fontSize: 12),
                   children: [
-                    TextSpan(text: 'Juan Uribe'),
-                    TextSpan(text: ' and ', style: greyTextStyle),
-                    TextSpan(text: 'SGR Galeria')
+                    TextSpan(text: username),
+                    const TextSpan(text: ' and ', style: greyTextStyle),
+                    const TextSpan(text: 'MJP GalArts')
                   ],
                 )),
         ],
@@ -159,19 +159,54 @@ class _Footer extends StatelessWidget {
     return SizedBox(
       height: 31,
       child: Row(
-        children: const [
+        children: [
           // heart
-          Icon(CupertinoIcons.heart, size: 21),
+          HeartIcon(liked: false),
 
           UIConstants.width8,
 
           // text
-          Text(
+          const Text(
             'Pegaboarded by adam, ronald and others',
             style: TextStyle(color: Colors.grey, fontSize: 12),
           )
         ],
       ),
+    );
+  }
+}
+
+class HeartIcon extends StatelessWidget {
+  HeartIcon({
+    super.key,
+    this.liked = false,
+  });
+
+  bool liked;
+
+  @override
+  Widget build(BuildContext context) {
+    final iconColor = liked ? Colors.red : null;
+    double turns = 0;
+    
+    return StatefulBuilder(
+      builder: (BuildContext context, setState) {
+        return AnimatedRotation(
+          turns: turns,
+          duration: const Duration(milliseconds: 300),
+          child: IconButton(
+            onPressed: () => setState(() {
+              liked = !liked;
+              turns += 1;
+            }),
+            icon: Icon(
+              liked ? CupertinoIcons.heart : CupertinoIcons.heart_fill,
+              color: iconColor,
+              size: 21,
+            ),
+          ),
+        );
+      },
     );
   }
 }
