@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-/// Creates a widget that paints the Peggy logo.
-  ///
 class PeggyLogo extends StatelessWidget {
+  /// Creates a widget that paints the Peggy logo.
+  ///
   const PeggyLogo({
     Key? key,
     required this.width,
