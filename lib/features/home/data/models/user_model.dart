@@ -1,14 +1,13 @@
-import 'dart:convert';
-
 import 'package:peggy/features/home/domain/entities/user.dart';
 
 class UserModel {
-  final String? id;
-  final String? updatedAt;
-  final String? username;
-  final String? name;
+  final String id;
+  final String updatedAt;
+  final String username;
+  final String name;
 
   final String profileImage;
+  
   UserModel({
     required this.id,
     required this.updatedAt,
@@ -20,16 +19,12 @@ class UserModel {
   factory UserModel.fromMap(Map<String, dynamic> map) {
     return UserModel(
       id: map['id'] as String,
-      updatedAt: map['updated_at'] ?? 'empty',
-      username: map['username'] ?? 'empty',
-      name: map['name'] ?? 'empty',
-      profileImage: map['profile_image']['small'] ?? 'no image',
+      updatedAt: map['updated_at'] ?? '',
+      username: map['username'] ?? '',
+      name: map['name'] ?? 'no-name',
+      profileImage: map['profile_image']['small'] ?? '',
     );
   }
-
-  factory UserModel.fromJson(String source) =>
-      UserModel.fromMap(json.decode(source) as Map<String, dynamic>);
-
 
   User get toEntiy => User(
       id: id,

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:peggy/features/home/domain/entities/post.dart';
+import 'package:peggy/features/home/domain/entities/user.dart';
 
 import '../../../../common/constants/constants.dart';
-import '../../../../common/presentation/widgets/board_card.dart';
+import '../../../pegboards/widgets/board_card.dart';
 import '../../../../common/presentation/widgets/horizontal_scoll_view.dart';
 import '../../../../common/presentation/widgets/post_card.dart';
 import 'article_card.dart';
@@ -18,11 +20,7 @@ class HomeActivityTabView extends StatelessWidget {
       // TODO: add pagination and move listview to listview.builder
       children: [
         // post card
-         PostCard(
-          username: 'Jasim Leske',
-          postImageUrl: 'https://static.independent.co.uk/2022/02/18/13/18095429-104810cb-e7ec-4644-9b90-953d3189982a.jpg',
-          profileImage: AssetConstants.artwork1,
-        ),
+        const PostCard(post: Dummy.post),
 
         // peggy curation
         HorizontalScrollView(

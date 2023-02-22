@@ -1,5 +1,10 @@
+
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+import 'package:peggy/core/enums/audio_state_enum.dart';
 
 import '../../../../common/constants/constants.dart';
 import '../../../../common/presentation/widgets/profile_avathar.dart';
@@ -19,7 +24,7 @@ class AudioCard extends StatelessWidget {
       child: Row(
         children: [
           // play/pause icon
-          const Icon(CupertinoIcons.play_circle_fill, size: 52),
+          const PlayPause(),
 
           UIConstants.width10,
 
@@ -40,6 +45,41 @@ class AudioCard extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class PlayPause extends StatelessWidget {
+  const PlayPause({
+    super.key,
+    this.audioState = AudioState.pause,
+  });
+
+  final AudioState audioState;
+
+  @override
+  Widget build(BuildContext context) {
+    double turns = 0;
+
+    return StatefulBuilder(
+      builder: (ctx, setState) => IconButton(
+        onPressed: () {
+          turns += 2;
+          HapticFeedback.lightImpact();
+          setState(() {});
+        },
+        icon: AnimatedRotation(
+          turns: turns,
+          duration: const Duration(milliseconds: 350),
+          curve: Curves.easeInOutCirc,
+          child: Icon(
+            audioState == AudioState.playing
+                ? CupertinoIcons.pause_circle_fill
+                : CupertinoIcons.play_circle_fill,
+            size: 52,
+          ),
+        ),
       ),
     );
   }

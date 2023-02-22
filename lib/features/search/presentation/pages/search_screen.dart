@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:peggy/common/presentation/widgets/app_bar.dart';
 
 import '../../../../common/constants/constants.dart';
-import '../../../../common/presentation/widgets/section_title.dart';
+import '../../../../common/presentation/widgets/horizontal_scoll_view.dart';
 import '../widgets/suggession_card.dart';
 
 class SearchScreen extends StatelessWidget {

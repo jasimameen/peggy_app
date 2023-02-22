@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 
 import '../../constants/ui_constants.dart';
-import 'section_title.dart';
 
 typedef ItemBuilder = Widget Function(BuildContext context, int index);
 
@@ -59,6 +58,32 @@ class HorizontalScrollView extends StatelessWidget {
 
         UIConstants.height20,
       ],
+    );
+  }
+}
+
+// title and trailing view all button
+class SectionTitle extends StatelessWidget {
+  const SectionTitle({
+    Key? key,
+    required this.title,
+    this.trailing,
+  }) : super(key: key);
+
+  final String title;
+  final Widget? trailing;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(title, style: const TextStyle(fontWeight: FontWeight.w600)),
+          if (trailing != null) trailing!,
+        ],
+      ),
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lottie/lottie.dart';
+import 'package:peggy/features/home/domain/entities/post.dart';
 import 'package:shimmer/shimmer.dart';
 import '../../../../common/constants/constants.dart';
 import '../../../../common/presentation/widgets/post_card.dart';
@@ -27,7 +28,17 @@ class HomeExploreTabView extends StatelessWidget {
           child: BlocBuilder<HomeBloc, HomeState>(
             builder: (context, state) {
               if (state.isLoading) {
-                return Center(child: Lottie.asset(LottiFiles.loadingPaint));
+                return Center(
+                  child: FractionallySizedBox(
+                    widthFactor: .45,
+                    child: Lottie.asset(
+                      LottiFiles.loadingPaint,
+                      repeat: true,
+                      reverse: true,
+                      animate: true,
+                    ),
+                  ),
+                );
               }
 
               if (state.hasError) {
@@ -39,13 +50,9 @@ class HomeExploreTabView extends StatelessWidget {
                 itemBuilder: (context, index) {
                   final post = state.posts[index];
 
-                  return PostCard.stacked(
-                    profileImages: [
-                      AssetConstants.artwork1,
-                      post.user!.profileImage,
-                    ],
-                    postImageUrl: post.imageUrl ?? '',
-                    username: post.user?.name ?? 'Kayl Lock',
+                  return PostCard(
+                    post: post,
+                    type: PostType.stacked,
                   );
                 },
                 separatorBuilder: (_, __) => UIConstants.divider,

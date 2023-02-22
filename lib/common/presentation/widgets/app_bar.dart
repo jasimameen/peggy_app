@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:lottie/lottie.dart';
 import '../../../injection.dart';
 import '../../constants/constants.dart';
 import '../../../core/navigation/app_router.gr.dart';
@@ -39,10 +40,16 @@ class CustomAppBar extends AppBar {
                   label,
                   style: const TextStyle(fontSize: 12),
                 )
-              : SvgPicture.asset(
-                  AssetConstants.logo,
+              : Lottie.asset(
+                  LottiFiles.peggyLogo,
                   height: 25,
                   width: 25,
+                  repeat: false,
+                  errorBuilder: (_, __, ___) => Image.asset(
+                    AssetConstants.logo,
+                    height: 25,
+                    width: 25,
+                  ),
                 ),
 
           // trailing or search icon (default)

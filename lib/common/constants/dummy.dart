@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../features/home/domain/entities/post.dart';
+import '../../features/home/domain/entities/user.dart';
 import '../../features/home/presentation/widgets/custom_list_tile.dart';
 import '../../features/notifications/presentation/pages/notifications_screen.dart';
 import '../../core/enums/user_enum.dart';
@@ -24,8 +26,7 @@ class Dummy {
     ),
   ];
 
-  static final pegaboardimages = <String
-  >[
+  static final pegaboardimages = <String>[
     'https://indianartzone.com/pub/media/mgs_blog/1/4/14b.jpg',
     'https://www.artun.ee/app/uploads/2022/02/01_MACA_EKA_Photo_Joosep_Kivima%CC%88e-900x900.jpg',
     'https://worlduniversityofdesign.ac.in/assets/images/bgs/contempary-art-practice-banner.jpg',
@@ -40,6 +41,20 @@ class Dummy {
     const NotifyTileUser('Adam Hijleh', UserType.collecter),
     const NotifyTileUser('Cat D', UserType.collecter),
   ];
+
+  static const post = Post(
+    id: '',
+    createdAt: '',
+    imageUrl:
+        'https://static.independent.co.uk/2022/02/18/13/18095429-104810cb-e7ec-4644-9b90-953d3189982a.jpg',
+    user: User(
+      id: '',
+      name: 'Jasim Leske',
+      updatedAt: '',
+      profileImage: AssetConstants.artwork1,
+      username: 'jasim-lesek',
+    ),
+  );
 
   // static const _imagePath =
   //     'https://firebasestorage.googleapis.com/v0/b/peggy-1b708.appspot.com/o/posts%2F';

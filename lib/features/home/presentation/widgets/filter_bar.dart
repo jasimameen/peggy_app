@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../../../../common/constants/constants.dart';
 import '../../../../common/presentation/widgets/profile_avathar.dart';
 
 class FilterBar extends StatelessWidget {
@@ -10,13 +9,13 @@ class FilterBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final chips = <Widget>[
-      FilterChip(label: 'Active Auction (0)'),
-      FilterChip(label: 'Asking Price (107)'),
-      FilterChip(label: 'Following (6)'),
-      FilterChip(label: 'Landscape Orientaion (58)'),
-      FilterChip(label: 'Landscape Orientaion (118)'),
-      FilterChip(label: 'Large > 80cm (69)'),
+    const filterChips = <Widget>[
+      SelectionChip(label: 'Active Auction (0)'),
+      SelectionChip(label: 'Asking Price (107)'),
+      SelectionChip(label: 'Following (6)'),
+      SelectionChip(label: 'Landscape Orientaion (58)'),
+      SelectionChip(label: 'Landscape Orientaion (118)'),
+      SelectionChip(label: 'Large > 80cm (69)'),
     ];
 
     return Padding(
@@ -30,7 +29,7 @@ class FilterBar extends StatelessWidget {
               physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               child: Row(
-                children: chips
+                children: filterChips
                     .map((chip) => Padding(
                           padding: const EdgeInsets.only(right: 10),
                           child: chip,
@@ -41,9 +40,10 @@ class FilterBar extends StatelessWidget {
           ),
 
           // filter button
-         const  ProfileAvathar(
+          const ProfileAvathar(
             backgroundColor: Colors.white,
-            child:  Icon(CupertinoIcons.arrow_up_arrow_down),
+            child:
+                Icon(CupertinoIcons.arrow_up_arrow_down, color: Colors.black),
           )
         ],
       ),
@@ -51,12 +51,21 @@ class FilterBar extends StatelessWidget {
   }
 }
 
-class FilterChip extends Chip {
-  FilterChip({
-    super.key,
-    required String label,
-  }) : super(
-          label: Text(label),
-          backgroundColor: Pallete.offWhite,
-        );
+class SelectionChip extends StatelessWidget {
+  const SelectionChip({super.key, required this.label});
+
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    bool selected = false;
+
+    return StatefulBuilder(
+      builder: (BuildContext context, setState) => FilterChip(
+        label: Text(label),
+        selected: selected,
+        onSelected: (_) => setState(() => selected = !selected),
+      ),
+    );
+  }
 }

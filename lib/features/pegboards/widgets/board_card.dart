@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:peggy/core/utils/utils.dart';
 
-import '../../constants/constants.dart';
+import '../../../common/constants/constants.dart';
 
 class PegBoardCard extends StatelessWidget {
   final String title;

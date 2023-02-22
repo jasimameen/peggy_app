@@ -1,8 +1,8 @@
 class User {
-  final String? id;
-  final String? updatedAt;
-  final String? username;
-  final String? name;
+  final String id;
+  final String updatedAt;
+  final String username;
+  final String name;
   final String profileImage;
 
   const User({
